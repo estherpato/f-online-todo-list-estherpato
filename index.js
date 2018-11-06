@@ -71,8 +71,7 @@ function openFormulary(e) {
 function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
-    todoList.innerHTML = todoList.innerHTML + 
-    `<input type="radio">${newTask}`
+    todoList.innerHTML = `<input type="radio">${newTask}` + todoList.innerHTML;
 }
 
 getDate();

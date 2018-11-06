@@ -5,30 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>TODO List</title>
 </head>
 
 <body>
-    <header class="header">
-        <img src="https://pbs.twimg.com/profile_images/761168430502404096/0i8eSHPw_400x400.jpg" alt="Logo Adalab">
-        <div class="date">
-            <p class="date-day-number"></p>
-            <p class="date-day"></p>
-            <p class="date-month-year"></p>
-        </div>
-    </header>
-    <main class="main">
-        <ul class="todo-list"></ul>
-        <form class="add-task hidden">
-            <label for="">Nueva tarea</label>
-            <input type="text" class="task-input">
-            <button type="submit" class="add-task-btn">Añadir</button>
-        </form>
-    </main>
-    <footer class="footer">
-        <button class="add-btn">+</button>
-    </footer>
+    <section class="card">
+        <header class="header">
+            <img src="https://pbs.twimg.com/profile_images/761168430502404096/0i8eSHPw_400x400.jpg" alt="Logo Adalab"
+                class="header-logo">
+            <div class="date">
+                <p class="date-day-number"></p>
+                <div>
+                    <p class="date-day"></p>
+                    <p class="date-month-year"></p>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <ul class="todo-list"></ul>
+            <div class="add-task-container hidden">
+                <form class="add-task">
+                    <label for="task" class="task-label">Nueva tarea</label>
+                    <input id="task" name="task" type="text" class="task-input">
+                    <button type="submit" class="add-task-btn">Añadir</button>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <button class="add-btn">+</button>
+        </footer>
+    </section>
     <script src="index.js"></script>
 </body>
 
