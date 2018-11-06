@@ -1,6 +1,12 @@
 const dateDayNumber = document.querySelector('.date-day-number');
 const dateDay = document.querySelector('.date-day');
 const dateMonthYear = document.querySelector('.date-month-year');
+const addButton = document.querySelector('.add-btn');
+const addTaskButton = document.querySelector('.add-task-btn');
+const taskInput = document.querySelector('.task-input');
+const todoList = document.querySelector('.todo-list');
+
+let newTask;
 
 function getDate() {
     const date = new Date();
@@ -58,4 +64,18 @@ function showDate(day, dayNumber, month, year) {
     }
 }
 
+function openFormulary(e) {
+    console.log('click')
+}
+
+function addNewTask(e) {
+    e.preventDefault();
+    newTask = taskInput.value;
+    todoList.innerHTML = todoList.innerHTML + 
+    `<input type="radio">${newTask}`
+}
+
 getDate();
+
+addButton.addEventListener('click', openFormulary);
+addTaskButton.addEventListener('click', addNewTask);
