@@ -68,20 +68,24 @@ function showDate(day, dayNumber, month, year) {
 function openFormulary() {
     formularyContainer.classList.remove('hidden');
     addButton.classList.add('hidden');
+    taskInput.value = '';
 }
 
 function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
-    todoList.innerHTML = `
-    <div class="list-item-container">
-        <input type="checkbox" class="list-item">
-        <span>${newTask}</span>
-    </div>`
-        + todoList.innerHTML;
-
-    formularyContainer.classList.add('hidden');
-    addButton.classList.remove('hidden');
+    if (newTask !== '') {
+        todoList.innerHTML = `
+        <label class="item-container">${newTask}
+            <input type="checkbox" class="list-item">
+            <span class="checkmark"></span>
+        </label>`
+            + todoList.innerHTML;
+        formularyContainer.classList.add('hidden');
+        addButton.classList.remove('hidden');
+    } else {
+        alert('Por favor, introduce una tarea');
+    }
 }
 
 getDate();
