@@ -5,6 +5,7 @@ const addButton = document.querySelector('.add-btn');
 const addTaskButton = document.querySelector('.add-task-btn');
 const taskInput = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list');
+const formularyContainer = document.querySelector('.add-task-container');
 
 let newTask;
 
@@ -64,14 +65,23 @@ function showDate(day, dayNumber, month, year) {
     }
 }
 
-function openFormulary(e) {
-    console.log('click')
+function openFormulary() {
+    formularyContainer.classList.remove('hidden');
+    addButton.classList.add('hidden');
 }
 
 function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
-    todoList.innerHTML = `<input type="radio">${newTask}` + todoList.innerHTML;
+    todoList.innerHTML = `
+    <div class="list-item-container">
+        <input type="checkbox" class="list-item">
+        <span>${newTask}</span>
+    </div>`
+        + todoList.innerHTML;
+
+    formularyContainer.classList.add('hidden');
+    addButton.classList.remove('hidden');
 }
 
 getDate();

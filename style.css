@@ -104,7 +104,6 @@ button {
     height: 500px;
     border-radius: 5px;
     top: 0;
-    
 }
 
 .add-task {
@@ -134,14 +133,14 @@ button {
     font-size: 16px;
     padding-left: 5px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .add-task-btn {
     border: 1px solid var(--light);
     border-radius: 20px;
     color: var(--light);
-    font-family: 'M PLUS Rounded 1c', sans-serif; 
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 16px;
     width: 100px;
     height: 35px;
@@ -154,4 +153,68 @@ button {
 
 .hidden {
     display: none;
+}
+
+.list-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 20px 20px;
+}
+
+.item-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.item-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.item-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.item-container .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--primary-color);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
