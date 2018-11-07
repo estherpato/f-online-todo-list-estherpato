@@ -6,8 +6,9 @@ const addTaskButton = document.querySelector('.add-task-btn');
 const taskInput = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list');
 const formularyContainer = document.querySelector('.add-task-container');
-
+let list = '';
 let newTask;
+const taskArray = [];
 
 function getDate() {
     const date = new Date();
@@ -65,6 +66,19 @@ function showDate(day, dayNumber, month, year) {
     }
 }
 
+function showTasks(newTask) {
+    taskArray.unshift(newTask);
+    taskArray.map(task => {
+        list += `
+        <label class="item-container">${task}
+            <input type="checkbox" class="list-item"/>
+            <span class="checkmark"></span>
+        </label>`;
+        console.log(list)
+    });
+    todoList.innerHTML = list;
+}
+
 function openFormulary() {
     formularyContainer.classList.remove('hidden');
     addButton.classList.add('hidden');
@@ -75,12 +89,8 @@ function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
     if (newTask !== '') {
-        todoList.innerHTML = `
-        <label class="item-container">${newTask}
-            <input type="checkbox" class="list-item">
-            <span class="checkmark"></span>
-        </label>`
-            + todoList.innerHTML;
+        list = '';
+        showTasks(newTask);
         formularyContainer.classList.add('hidden');
         addButton.classList.remove('hidden');
     } else {
