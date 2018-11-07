@@ -6,10 +6,13 @@ const addTaskButton = document.querySelector('.add-task-btn');
 const taskInput = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list');
 const formularyContainer = document.querySelector('.add-task-container');
+
 let list = '';
 let newTask;
 const taskArray = [];
 const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+
+
 
 function getDate() {
     const date = new Date();
@@ -56,6 +59,7 @@ function showTaskList() {
                 </label>`;
         });
         todoList.innerHTML = list;
+        setListener();
     }
 }
 
@@ -70,6 +74,7 @@ function writeTasks(newTask) {
                 </label>`;
         });
         todoList.innerHTML = list;
+        setListener();
         setLocalStorage(taskArray);
     } else {
         savedTasks.unshift(newTask);
@@ -81,12 +86,18 @@ function writeTasks(newTask) {
                 </label>`;
         });
         todoList.innerHTML = list;
+        setListener();
         setLocalStorage(savedTasks);
     }
 }
 
 function setLocalStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function setListener() {
+    const todoListItems = document.querySelectorAll('.list-item');
+    todoListItems.forEach(item => item.addEventListener('change', checkInputHandler));
 }
 
 function openFormulary() {
@@ -115,9 +126,19 @@ function closeFormulary(e) {
     }
 }
 
+function checkInputHandler() {
+    const parentLabel = this.parentElement;
+    if (this.checked) {
+        parentLabel.classList.add('item-container-selected');
+    } else {
+        parentLabel.classList.remove('item-container-selected');
+    }
+}
+
 getDate();
 showTaskList();
 
 addButton.addEventListener('click', openFormulary);
 addTaskButton.addEventListener('click', addNewTask);
 window.addEventListener('keydown', closeFormulary);
+

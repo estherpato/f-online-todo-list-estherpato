@@ -178,6 +178,11 @@ button {
     user-select: none;
 }
 
+.item-container-selected {
+    color: lightgray;
+    text-decoration-line: line-through;
+}
+
 .item-container input {
     position: absolute;
     opacity: 0;
@@ -192,9 +197,13 @@ button {
     left: 0;
     height: 25px;
     width: 25px;
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 20px;
     margin-right: 10px;
+}
+
+.item-container input:checked~.checkmark {
+    border: 2px solid var(--terciary-color);
 }
 
 .checkmark:after {
@@ -208,11 +217,11 @@ button {
 }
 
 .item-container .checkmark:after {
-    left: 8px;
-    top: 4px;
+    left: 7px;
+    top: 3px;
     width: 5px;
     height: 10px;
-    border: solid var(--primary-color);
+    border: solid var(--terciary-color);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
