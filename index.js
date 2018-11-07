@@ -24,57 +24,36 @@ function getDate() {
 function showDate(day, dayNumber, month, year) {
     dateDayNumber.innerText = dayNumber;
 
-    if (day === 1) {
-        dateDay.innerText = 'Lunes';
-    } else if (day === 2) {
-        dateDay.innerText = 'Martes';
-    } else if (day === 3) {
-        dateDay.innerText = 'Miércoles';
-    } else if (day === 4) {
-        dateDay.innerText = 'Jueves';
-    } else if (day === 5) {
-        dateDay.innerText = 'Viernes';
-    } else if (day === 6) {
-        dateDay.innerText = 'Sábado';
-    } else if (day === 7) {
-        dateDay.innerText = 'Domingo';
-    }
+    if (day === 1) { dateDay.innerText = 'Lunes'; }
+    else if (day === 2) { dateDay.innerText = 'Martes'; }
+    else if (day === 3) { dateDay.innerText = 'Miércoles'; }
+    else if (day === 4) { dateDay.innerText = 'Jueves'; }
+    else if (day === 5) { dateDay.innerText = 'Viernes'; }
+    else if (day === 6) { dateDay.innerText = 'Sábado'; }
+    else if (day === 7) { dateDay.innerText = 'Domingo'; }
 
-    if (month === 1) {
-        dateMonthYear.innerText = 'Enero' + ', ' + year
-    } else if (month === 2) {
-        dateMonthYear.innerText = 'Febrero' + ', ' + year
-    } else if (month === 3) {
-        dateMonthYear.innerText = 'Marzo' + ', ' + year
-    } else if (month === 4) {
-        dateMonthYear.innerText = 'Abril' + ', ' + year
-    } else if (month === 5) {
-        dateMonthYear.innerText = 'Mayo' + ', ' + year
-    } else if (month === 6) {
-        dateMonthYear.innerText = 'Junio' + ', ' + year
-    } else if (month === 7) {
-        dateMonthYear.innerText = 'Julio' + ', ' + year
-    } else if (month === 8) {
-        dateMonthYear.innerText = 'Agosto' + ', ' + year
-    } else if (month === 9) {
-        dateMonthYear.innerText = 'Septiembre' + ', ' + year
-    } else if (month === 10) {
-        dateMonthYear.innerText = 'Octubre' + ', ' + year
-    } else if (month === 11) {
-        dateMonthYear.innerText = 'Noviembre' + ', ' + year
-    } else if (month === 12) {
-        dateMonthYear.innerText = 'Diciembre' + ', ' + year
-    }
+    if (month === 1) { dateMonthYear.innerText = 'Enero' + ', ' + year }
+    else if (month === 2) { dateMonthYear.innerText = 'Febrero' + ', ' + year }
+    else if (month === 3) { dateMonthYear.innerText = 'Marzo' + ', ' + year }
+    else if (month === 4) { dateMonthYear.innerText = 'Abril' + ', ' + year }
+    else if (month === 5) { dateMonthYear.innerText = 'Mayo' + ', ' + year }
+    else if (month === 6) { dateMonthYear.innerText = 'Junio' + ', ' + year }
+    else if (month === 7) { dateMonthYear.innerText = 'Julio' + ', ' + year }
+    else if (month === 8) { dateMonthYear.innerText = 'Agosto' + ', ' + year }
+    else if (month === 9) { dateMonthYear.innerText = 'Septiembre' + ', ' + year }
+    else if (month === 10) { dateMonthYear.innerText = 'Octubre' + ', ' + year }
+    else if (month === 11) { dateMonthYear.innerText = 'Noviembre' + ', ' + year }
+    else if (month === 12) { dateMonthYear.innerText = 'Diciembre' + ', ' + year }
 }
 
 function showTaskList() {
     if (savedTasks !== null) {
         savedTasks.map(task => {
             list += `
-        <label class="item-container">${task}
-            <input type="checkbox" class="list-item"/>
-            <span class="checkmark"></span>
-        </label>`;
+                <label class="item-container">${task}
+                    <input type="checkbox" class="list-item"/>
+                    <span class="checkmark"></span>
+                </label>`;
         });
         todoList.innerHTML = list;
     }
@@ -85,10 +64,10 @@ function writeTasks(newTask) {
         taskArray.unshift(newTask);
         taskArray.map(task => {
             list += `
-        <label class="item-container">${task}
-            <input type="checkbox" class="list-item"/>
-            <span class="checkmark"></span>
-        </label>`;
+                <label class="item-container">${task}
+                    <input type="checkbox" class="list-item"/>
+                    <span class="checkmark"></span>
+                </label>`;
         });
         todoList.innerHTML = list;
         setLocalStorage(taskArray);
@@ -96,10 +75,10 @@ function writeTasks(newTask) {
         savedTasks.unshift(newTask);
         savedTasks.map(task => {
             list += `
-        <label class="item-container">${task}
-            <input type="checkbox" class="list-item"/>
-            <span class="checkmark"></span>
-        </label>`;
+                <label class="item-container">${task}
+                    <input type="checkbox" class="list-item"/>
+                    <span class="checkmark"></span>
+                </label>`;
         });
         todoList.innerHTML = list;
         setLocalStorage(savedTasks);
@@ -129,8 +108,16 @@ function addNewTask(e) {
     }
 }
 
+function closeFormulary(e) {
+    if (e.keyCode === 27) {
+        formularyContainer.classList.add('hidden');
+        addButton.classList.remove('hidden');
+    }
+}
+
 getDate();
 showTaskList();
 
 addButton.addEventListener('click', openFormulary);
 addTaskButton.addEventListener('click', addNewTask);
+window.addEventListener('keydown', closeFormulary);
