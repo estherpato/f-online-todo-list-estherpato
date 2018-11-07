@@ -119,12 +119,7 @@ function openFormulary() {
 function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
-    if (newTask !== '' && savedTasks === null) {
-        list = '';
-        writeTasks(newTask);
-        formularyContainer.classList.add('hidden');
-        addButton.classList.remove('hidden');
-    } else if (newTask !== '' && savedTasks !== null) {
+    if (newTask !== '') {
         list = '';
         writeTasks(newTask);
         formularyContainer.classList.add('hidden');
