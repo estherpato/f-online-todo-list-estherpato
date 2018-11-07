@@ -5,8 +5,8 @@
 
 Puedes consultar el prototipo de diseño seguido [aquí](https://sketch.cloud/s/KA9e1/all/todo-list/principal/play).
 
-![todo list preview](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LBuE_3vmgBvgJcAyIkl%2F-LNiKgwXR-S39jJ6GgHX%2F-LNiKi19dDxNFPVq19S_%2F00-principal.png)
-![todo list preview](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LBuE_3vmgBvgJcAyIkl%2F-LNiKgwXR-S39jJ6GgHX%2F-LNiKi1BlIi4KLvR_O08%2F02-anade-tarea.png)
+![todo list preview](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LBuE_3vmgBvgJcAyIkl%2F-LNiKgwXR-S39jJ6GgHX%2F-LNiKi19dDxNFPVq19S_%2F00-principal.png?generation=1538375739041255&alt=media)
+![todo list preview](https://blobscdn.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LBuE_3vmgBvgJcAyIkl%2F-LNiKgwXR-S39jJ6GgHX%2F-LNiKi1BlIi4KLvR_O08%2F02-anade-tarea.png?generation=1538375743096489&alt=media)
 
 ### Guía de funcionalidad
 
