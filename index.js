@@ -9,6 +9,7 @@ const formularyContainer = document.querySelector('.add-task-container');
 let list = '';
 let newTask;
 const taskArray = [];
+const savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
 function getDate() {
     const date = new Date();
@@ -66,17 +67,47 @@ function showDate(day, dayNumber, month, year) {
     }
 }
 
-function showTasks(newTask) {
-    taskArray.unshift(newTask);
-    taskArray.map(task => {
-        list += `
+function showTaskList() {
+    if (savedTasks !== null) {
+        savedTasks.map(task => {
+            list += `
         <label class="item-container">${task}
             <input type="checkbox" class="list-item"/>
             <span class="checkmark"></span>
         </label>`;
-        console.log(list)
-    });
-    todoList.innerHTML = list;
+        });
+        todoList.innerHTML = list;
+    }
+}
+
+function writeTasks(newTask) {
+    if (savedTasks === null) {
+        taskArray.unshift(newTask);
+        taskArray.map(task => {
+            list += `
+        <label class="item-container">${task}
+            <input type="checkbox" class="list-item"/>
+            <span class="checkmark"></span>
+        </label>`;
+        });
+        todoList.innerHTML = list;
+        setLocalStorage(taskArray);
+    } else {
+        savedTasks.unshift(newTask);
+        savedTasks.map(task => {
+            list += `
+        <label class="item-container">${task}
+            <input type="checkbox" class="list-item"/>
+            <span class="checkmark"></span>
+        </label>`;
+        });
+        todoList.innerHTML = list;
+        setLocalStorage(savedTasks);
+    }
+}
+
+function setLocalStorage(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function openFormulary() {
@@ -88,9 +119,14 @@ function openFormulary() {
 function addNewTask(e) {
     e.preventDefault();
     newTask = taskInput.value;
-    if (newTask !== '') {
+    if (newTask !== '' && savedTasks === null) {
         list = '';
-        showTasks(newTask);
+        writeTasks(newTask);
+        formularyContainer.classList.add('hidden');
+        addButton.classList.remove('hidden');
+    } else if (newTask !== '' && savedTasks !== null) {
+        list = '';
+        writeTasks(newTask);
         formularyContainer.classList.add('hidden');
         addButton.classList.remove('hidden');
     } else {
@@ -99,6 +135,7 @@ function addNewTask(e) {
 }
 
 getDate();
+showTaskList();
 
 addButton.addEventListener('click', openFormulary);
 addTaskButton.addEventListener('click', addNewTask);
