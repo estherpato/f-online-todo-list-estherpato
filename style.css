@@ -229,6 +229,13 @@ button {
     transform: rotate(45deg);
 }
 
+.clear-icon {
+    color: var(--secondary-color);
+    position: absolute;
+    right: 8px;
+    bottom: 80px;
+}
+
 .back-card-first {
     position: absolute;
     width: 292px;

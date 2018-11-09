@@ -6,6 +6,7 @@ const addTaskButton = document.querySelector('.add-task-btn');
 const taskInput = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list');
 const formularyContainer = document.querySelector('.add-task-container');
+const clearButton = document.querySelector('.clear-icon');
 
 let list = '';
 let newTask;
@@ -128,6 +129,11 @@ function closeFormulary(e) {
     }
 }
 
+function clearList() {
+    localStorage.removeItem('tasks');
+    todoList.innerHTML = '';
+}
+
 function checkInputHandler() {
     const parentLabel = this.parentElement;
     if (this.checked) {
@@ -143,3 +149,4 @@ showTaskList();
 addButton.addEventListener('click', openFormulary);
 addTaskButton.addEventListener('click', addNewTask);
 window.addEventListener('keydown', closeFormulary);
+clearButton.addEventListener('click', clearList)
