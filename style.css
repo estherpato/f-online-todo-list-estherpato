@@ -34,6 +34,7 @@ button {
     height: 500px;
     border-radius: 5px;
     position: relative;
+
 }
 
 .header {
@@ -226,4 +227,28 @@ button {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.back-card-first {
+    position: absolute;
+    width: 292px;
+    height: 480px;
+    top: 0;
+    background-color: #ffffff;
+    opacity: 0.9;
+    transform: translate(-2%,2%);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.back-card-second {
+    position: absolute;
+    width: 304px;
+    height: 460px;
+    top: 0;
+    background-color: #ffffff;
+    opacity: 0.8;
+    transform: translate(-4%,4%);
+    z-index: -2;
+    border-radius: 5px;
 }

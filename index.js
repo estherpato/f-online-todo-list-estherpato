@@ -141,4 +141,3 @@ showTaskList();
 addButton.addEventListener('click', openFormulary);
 addTaskButton.addEventListener('click', addNewTask);
 window.addEventListener('keydown', closeFormulary);
-
