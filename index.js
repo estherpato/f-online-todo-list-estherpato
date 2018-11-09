@@ -12,8 +12,7 @@ let newTask;
 const taskArray = [];
 const savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
-
-
+// generar un new Date y guardar los valores en constantes
 function getDate() {
     const date = new Date();
     const dayNumber = date.getDate();
@@ -24,6 +23,7 @@ function getDate() {
     showDate(day, dayNumber, month, year);
 }
 
+// imprimir los datos de getDate en pantalla
 function showDate(day, dayNumber, month, year) {
     dateDayNumber.innerText = dayNumber;
 
@@ -49,6 +49,7 @@ function showDate(day, dayNumber, month, year) {
     else if (month === 12) { dateMonthYear.innerText = 'Diciembre' + ', ' + year }
 }
 
+// mostrar las tareas guardadas en LocalStorage al cargar la pag
 function showTaskList() {
     if (savedTasks !== null) {
         savedTasks.map(task => {
@@ -63,6 +64,7 @@ function showTaskList() {
     }
 }
 
+// controlar lo que sucede al añadir una nueva tarea
 function writeTasks(newTask) {
     if (savedTasks === null) {
         taskArray.unshift(newTask);
