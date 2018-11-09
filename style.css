@@ -94,6 +94,11 @@ button {
     font-size: 40px;
 }
 
+.add-btn:hover {
+    transform: rotate(360deg);
+    transition: transform ease 1s;
+}
+
 .add-task-container {
     position: absolute;
     display: flex;
@@ -234,6 +239,10 @@ button {
     position: absolute;
     right: 8px;
     bottom: 80px;
+}
+
+.clear-icon:hover {
+    color: red;
 }
 
 .back-card-first {
