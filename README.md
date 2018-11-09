@@ -5,12 +5,10 @@
 
 Puedes consultar el prototipo de diseño seguido [aquí](https://sketch.cloud/s/KA9e1/all/todo-list/principal/play).
 
-<img src="https://i.imgur.com/Ed9TvN0.png" alt="front view" style="width:200px;"/>
-<img src="https://i.imgur.com/g6ns52S.png" alt="front view" style="width:200px;"/>
-
 ### Guía de funcionalidad
 
 Funcionalidades básicas:
+
 * Añadir una tarea.
 * Completar una tarea.
 * Desmarcar una tarea completada.
@@ -20,6 +18,11 @@ Funcionalidades básicas:
 * Realizado en *vanilla* JavaScript, sin librerías externas.
 * Siempre muestra la fecha actual.
 * Las tareas se guardan en el LocalStorage.
+
+### Extras
+
+* Se ha implementado un botón "papelera" para borrar la lista y con ello limpiar el LocalStorage.
+* Puedes salir de la ventana de añadir tarea pulsando la tecla ESC.
 
 ### Referencias
 
