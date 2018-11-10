@@ -11,6 +11,7 @@ const clearButton = document.querySelector('.clear-icon');
 let list = '';
 let newTask;
 const taskArray = [];
+const checkedArray = [];
 const savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
 // generar un new Date y guardar los valores en constantes
@@ -26,28 +27,11 @@ function getDate() {
 
 // imprimir los datos de getDate en pantalla
 function showDate(day, dayNumber, month, year) {
+    const weekDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     dateDayNumber.innerText = dayNumber;
-
-    if (day === 1) { dateDay.innerText = 'Lunes'; }
-    else if (day === 2) { dateDay.innerText = 'Martes'; }
-    else if (day === 3) { dateDay.innerText = 'Miércoles'; }
-    else if (day === 4) { dateDay.innerText = 'Jueves'; }
-    else if (day === 5) { dateDay.innerText = 'Viernes'; }
-    else if (day === 6) { dateDay.innerText = 'Sábado'; }
-    else if (day === 7) { dateDay.innerText = 'Domingo'; }
-
-    if (month === 1) { dateMonthYear.innerText = 'Enero' + ', ' + year }
-    else if (month === 2) { dateMonthYear.innerText = 'Febrero' + ', ' + year }
-    else if (month === 3) { dateMonthYear.innerText = 'Marzo' + ', ' + year }
-    else if (month === 4) { dateMonthYear.innerText = 'Abril' + ', ' + year }
-    else if (month === 5) { dateMonthYear.innerText = 'Mayo' + ', ' + year }
-    else if (month === 6) { dateMonthYear.innerText = 'Junio' + ', ' + year }
-    else if (month === 7) { dateMonthYear.innerText = 'Julio' + ', ' + year }
-    else if (month === 8) { dateMonthYear.innerText = 'Agosto' + ', ' + year }
-    else if (month === 9) { dateMonthYear.innerText = 'Septiembre' + ', ' + year }
-    else if (month === 10) { dateMonthYear.innerText = 'Octubre' + ', ' + year }
-    else if (month === 11) { dateMonthYear.innerText = 'Noviembre' + ', ' + year }
-    else if (month === 12) { dateMonthYear.innerText = 'Diciembre' + ', ' + year }
+    dateDay.innerText = weekDays[day];
+    dateMonthYear.innerText = months[month] + ', ' + year;
 }
 
 // mostrar las tareas guardadas en LocalStorage al cargar la pag
@@ -99,8 +83,8 @@ function setLocalStorage(tasks) {
 }
 
 function setListener() {
-    const todoListItems = document.querySelectorAll('.list-item');
-    todoListItems.forEach(item => item.addEventListener('change', checkInputHandler));
+    const boxes = document.querySelectorAll("input[type='checkbox']");
+    boxes.forEach(item => item.addEventListener('change', checkInputHandler));
 }
 
 function openFormulary() {
